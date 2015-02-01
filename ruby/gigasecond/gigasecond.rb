@@ -1,7 +1,7 @@
 class Gigasecond
-	def self.gigasecond() 10**9 end
-	
-	def self.from(date)
-		(date.to_time + gigasecond).to_date
-	end
+  SECONDS = 10**9
+
+  def self.from(date)
+    (date.to_time + SECONDS).to_date
+  end
 end
