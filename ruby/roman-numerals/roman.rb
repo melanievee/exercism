@@ -1,32 +1,15 @@
 class Fixnum
   def to_roman
-    roman = ""
+    roman_pairs = {"M"=>1000, "CM"=>900, "D"=>500, "CD"=>400, "C"=>100, "XC"=>90, "L"=>50, "XL"=>40, "X"=>10, "IX"=>9, "V"=>5, "IV"=>4, "I"=>1}
 
-    number = self
-    roman << "M"*(number/1000)
-    number = number%1000
-    roman << "CM"*(number/900)
-    number = number%900
-    roman << "D"*(number/500)
-    number = number%500
-    roman << "CD"*(number/400)
-    number = number%400
-    roman << "C"*(number/100)
-    number = number%100
-    roman << "XC"*(number/90)
-    number = number%90
-    roman << "L"*(number/50)
-    number = number%50
-    roman << "XL"*(number/40)
-    number = number%40
-    roman << "X"*(number/10)
-    number = number%10
-    roman << "IX"*(number/9)
-    number = number%9
-    roman << "V"*(number/5)
-    number = number%5
-    roman << "IV"*(number/4)
-    number = number%4
-    roman << "I"*(number)
+    roman = ""
+    temp_number = self
+
+    roman_pairs.each do | key, value |
+      roman << key * (temp_number / value)
+      temp_number = temp_number % value
+    end
+
+    roman
   end
 end
