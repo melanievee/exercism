@@ -4,15 +4,11 @@ class Squares
 	end
 
 	def square_of_sums
-		sum = 0
-		1.upto(@num) { |i| sum += i }
-		sum ** 2
+		(1..@num).reduce(:+) ** 2
 	end
 
 	def sum_of_squares
-		sum = 0
-		1.upto(@num) { |i| sum += (i**2) }
-		sum
+		(1..@num).reduce(0) { | sum, num| sum + num**2 }
 	end
 
 	def difference
