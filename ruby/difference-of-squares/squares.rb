@@ -8,7 +8,7 @@ class Squares
 	end
 
 	def sum_of_squares
-		(1..@num).reduce(0) { | sum, num| sum + num**2 }
+		(1..@num).reduce(0) { | sum, num | sum + num**2 }
 	end
 
 	def difference
