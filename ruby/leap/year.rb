@@ -1,5 +1,5 @@
 class Year
   def self.leap?(year)
-    year.modulo(400).zero? || ( year.modulo(4).zero? && !year.modulo(100).zero? )
+    year % 400 == 0 || year % 4 == 0 && year % 100 != 0
   end
 end
