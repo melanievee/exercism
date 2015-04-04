@@ -1,23 +1,20 @@
+require 'set'
+
 class Robot
   attr_reader :name
-  @@used_names = []
+  @@used_names = Set.new
 
   def initialize
     reset
   end
 
   def reset
-    begin
-      @name = generate_name
-    end while @@used_names.include?(@name)
+    @name = generate_name until !@@used_names.include?(@name) && !(@name.to_s == "")
     @@used_names << @name
   end
 
   def generate_name
-    ((0..1).map { (65 + rand(26)).chr }.join) + ((0..2).map { rand(10) }.join)
+    ((0..1).map {('A'..'Z').to_a.sample}.join) + rand(100..999).to_s
   end
 
-  def self.used_names
-    @@used_names
-  end
 end
