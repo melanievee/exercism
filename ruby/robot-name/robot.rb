@@ -9,8 +9,7 @@ class Robot
   end
 
   def reset
-    @name = generate_name until !@@used_names.include?(@name) && !(@name.to_s == "")
-    @@used_names << @name
+    @name = generate_name until @name && @@used_names.add?(@name)
   end
 
   def generate_name
