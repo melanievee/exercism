@@ -12,8 +12,4 @@ class Binary
     end
     number
   end
-
-  def preprocess(binary)
-
-  end
 end
